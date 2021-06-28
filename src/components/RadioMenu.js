@@ -27,6 +27,7 @@ export default function RadioMenu() {
         e.preventDefault();
         if (counter < radioData.length-1){
             setRadioClicked(counter +=1)
+            setRadioName(radioData[counter].name)
         }
     }
 
@@ -35,6 +36,7 @@ export default function RadioMenu() {
         e.preventDefault();
         if (counter > 0){
             setRadioClicked(counter -=1)
+            setRadioName(radioData[counter].name)
         }
     }
 
