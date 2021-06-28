@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import RadioInfo from "./RadioInfo";
 
 import axios from "axios";
 
@@ -6,6 +7,7 @@ export default function RadioMenu() {
 
     const [radioData, setRadioData] = useState([]);
     const [radioClicked, setRadioClicked] = useState();
+    const [radioName, setRadioName] = useState('')
         
     useEffect(() => {
         getRadioData();
@@ -23,7 +25,7 @@ export default function RadioMenu() {
     const handlePlusClick = (e) => {
         let counter = radioClicked;
         e.preventDefault();
-        if (counter < 3){
+        if (counter < radioData.length-1){
             setRadioClicked(counter +=1)
         }
     }
@@ -36,24 +38,30 @@ export default function RadioMenu() {
         }
     }
 
-    console.log(radioData)
-
-
     return (
         <>
-            <ul>
-                {radioData.map((el, index) => 
-                    <li key={index}>
-                        
-                        <button onClick={() => setRadioClicked(index)}>{el.name} {el.frequency}</button> 
-                        {radioClicked === index ? (<>
+            {radioData.map((el, index) => 
+                <div>
+
+                {radioClicked === index ? (
+                    <div>
                         <button onClick={e => handleMinusClick(e)}>-</button>
-                        <img src={el.image} alt="a"></img>
+                        <img width="100px" src={el.image} alt="a"></img>
                         <button onClick={e => handlePlusClick(e)}>+</button>
-                        </>) : null}
-                        
-                    </li>)}
-            </ul>
+                    </div>) : null}
+
+                    <div onClick={() => setRadioName(el.name)}>
+                        <button onClick={() => setRadioClicked(index)}>{el.name} {el.frequency}</button>
+                    </div> 
+
+                </div>
+                
+                
+                )}
+                <div>
+                    {radioClicked >= 0 ? <RadioInfo radioName={radioName}/> : null}
+                </div>
+                
         </>
     );
 
