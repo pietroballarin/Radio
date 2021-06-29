@@ -1,0 +1,105 @@
+$bgr-clr: #252532
+$main-clr: #363642
+$second-clr: #Be2045
+$btm-clr: #262631
+$txt-clr: #A0A9C0
+$title-clr: #FFF
+$width: 70%
+$margin: 15%
+    
+body
+  background-color: $bgr-clr
+  font-size: 16px
+
+button
+  padding: 3px 10px
+  font-size: 12px
+  border-radius: 3px
+  border: none
+  margin: 5px
+
+.title-section
+  background-color: $second-clr
+  width: $width
+  margin: $margin $margin 0 $margin
+  height: 8vh
+  color: $title-clr
+  font-size: 0.5em 
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-around
+  align-items: center
+  border-top-right-radius: 25px
+  border-top-left-radius: 25px
+  
+.stations-section
+  background-color: $main-clr
+  border-top: 1px solid $main-clr
+  margin: 0 $margin 0 $margin
+  overflow-y: scroll
+  height: 40vh
+  width: $width
+  padding: auto 20px auto 20px
+
+.station-btn 
+  width: 90%
+  background-color: $main-clr
+  color: $txt-clr
+  font-size: 1em
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: center
+  border-bottom: 1px solid $txt-clr
+  border-bottom-witdh: 1vh
+
+.picture-section
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-around
+  align-items: center
+  padding-top: 10px
+
+.radio-img
+  border: 3px solid $txt-clr
+  border-radius: 100px
+
+.controls
+  color: $txt-clr
+
+.p1
+  padding-left: 1%
+
+.radio-info
+  margin: 0 $margin $margin $margin
+  background-color: $second-clr
+  border-bottom-right-radius: 25px
+  border-bottom-left-radius: 25px
+  border-top: 2px solid $txt-clr
+  height: 8vh
+  box-shadow: 0 30px 13px -17px
+  display: flex
+  flex-direction: column
+  flex-wrap: nowrap
+  justify-content: center
+  align-items: center
+
+.radio-info 
+  h3
+    color: $title-clr
+
+.paused 
+  border: none
+
+.btm-txt 
+  color: $title-clr
+  font-size: 0.6em
+  margin: 3vh auto 0 auto 
+
+.radio-info-msg
+  color: $title-clr
+  font-size: 1em
+  margin: 1vh auto 3vh auto 

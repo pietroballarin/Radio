@@ -1,20 +1,23 @@
 import React, {useState} from "react";
 import RadioMenu from "./RadioMenu";
+import { faPlay, faStop } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function RadioHeader() {
 
-  const [pauseStart, setPauseStart] = useState(true)
+  const [pauseStart, setPauseStart] = useState(true);
 
   return (
     <>
-      <div>
-        <button onClick={() => setPauseStart(true)}>S</button>
-        <h1>Radio Stations</h1>
-        <button onClick={() => setPauseStart(false)}>P</button>
+      <div className="title-section">
+        <FontAwesomeIcon className="fa-stop fa-3x" onClick={() => setPauseStart(false)} icon={faStop}/>
+        <h1>STATIONS</h1>
+        <FontAwesomeIcon className="fa-play fa-3x" onClick={() => setPauseStart(true)} icon={faPlay} />
       </div>
+        
       {pauseStart ?
-        <RadioMenu /> : <h1>Stop</h1>
+        <RadioMenu /> : <div className="radio-info paused">Radio</div>
       }
     </>
-  )
-}
+  );
+};

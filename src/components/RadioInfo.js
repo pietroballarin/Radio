@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from "react";
 
 export default function RadioInfo(props) {
 
-
     return (
-        <div>
-            <h3>You are listening to</h3>
-            <p>{props.radioName}</p>
+        <div className="radio-info">
+            <h3 className="btm-txt">YOU ARE LISTENING TO</h3>
+            <p className="radio-info-msg">{props.radioName}</p>
         </div>
-    )
-}
+    );
+};
