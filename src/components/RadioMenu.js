@@ -49,12 +49,12 @@ export default function RadioMenu() {
             
             {radioData.map((el, index) => 
                 
-                <div>
+                <div className="stations-container">
 
                 {radioClicked === index ? (
                     <div className="picture-section">
                         <FontAwesomeIcon className="controls fa-2x" onClick={e => handleMinusClick(e)} icon={faMinusSquare}/>
-                        <img className="radio-img" width="100px" src={el.image} alt="a"></img>
+                        <img className="radio-img" src={el.image} alt="a"></img>
                         <FontAwesomeIcon className="controls fa-2x" onClick={e => handlePlusClick(e)} icon={faPlusSquare}/>
                     </div>) : null}
 
@@ -64,6 +64,7 @@ export default function RadioMenu() {
                             <p className="p2">{el.frequency} FM</p>
                         </button>
                     </div>
+
                 </div>
                 
                 )}

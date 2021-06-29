@@ -10,6 +10,7 @@ $margin: 15%
 body
   background-color: $bgr-clr
   font-size: 16px
+  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif
 
 button
   padding: 3px 10px
@@ -33,6 +34,7 @@ button
   border-top-right-radius: 25px
   border-top-left-radius: 25px
   
+
 .stations-section
   background-color: $main-clr
   border-top: 1px solid $main-clr
@@ -40,10 +42,15 @@ button
   overflow-y: scroll
   height: 40vh
   width: $width
-  padding: auto 20px auto 20px
+
+.stations-container
+  margin: auto 2% auto 2%
+
+.stations-section::-webkit-scrollbar 
+    display: none
 
 .station-btn 
-  width: 90%
+  width: 95%
   background-color: $main-clr
   color: $txt-clr
   font-size: 1em
@@ -53,7 +60,7 @@ button
   justify-content: space-between
   align-items: center
   border-bottom: 1px solid $txt-clr
-  border-bottom-witdh: 1vh
+  border-bottom-witdh: 1px
 
 .picture-section
   display: flex
@@ -64,8 +71,9 @@ button
   padding-top: 10px
 
 .radio-img
-  border: 3px solid $txt-clr
-  border-radius: 100px
+  border: 2px solid $txt-clr
+  border-radius: 50%
+  width: 15vh
 
 .controls
   color: $txt-clr

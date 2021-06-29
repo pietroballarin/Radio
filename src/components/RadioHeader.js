@@ -16,7 +16,10 @@ export default function RadioHeader() {
       </div>
         
       {pauseStart ?
-        <RadioMenu /> : <div className="radio-info paused">Radio</div>
+        <RadioMenu /> : 
+        <div className="radio-info paused">
+        <h3>MyRADIO</h3>
+        </div>
       }
     </>
   );
