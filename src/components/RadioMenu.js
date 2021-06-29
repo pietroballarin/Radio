@@ -49,7 +49,7 @@ export default function RadioMenu() {
             
             {radioData.map((el, index) => 
                 
-                <div className="stations-container">
+                <div key={index} className="stations-container">
 
                 {radioClicked === index ? (
                     <div className="picture-section">
