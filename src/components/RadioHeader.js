@@ -12,7 +12,7 @@ export default function RadioHeader() {
       <div className="title-section">
         <FontAwesomeIcon className="fa-stop fa-3x" onClick={() => setPauseStart(false)} icon={faStop}/>
         <h1>STATIONS</h1>
-        <FontAwesomeIcon className="fa-play fa-3x" onClick={() => setPauseStart(true)} icon={faPlay} />
+        <FontAwesomeIcon className="fa-play fa-3x" onClick={() => setPauseStart(true)} icon={faPlay}/>
       </div>
         
       {pauseStart ?

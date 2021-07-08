@@ -3,8 +3,6 @@ import RadioInfo from "./RadioInfo";
 import { faPlusSquare, faMinusSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import axios from "axios";
-
 export default function RadioMenu() {
 
     const [radioData, setRadioData] = useState([]);
@@ -16,30 +14,33 @@ export default function RadioMenu() {
     }, []);
 
     const getRadioData = () => { 
-        axios
-        .get("https://teclead.de/recruiting/radios")
+        fetch("https://teclead.de/recruiting/radios")
+        .then(res => res.json(200))
         .then((response) => {
-            setRadioData(response.data.radios);
+            setRadioData(response.radios);
         })
         .catch((err) => err);
     };
 
-    const handlePlusClick = (e) => {
+    const handlePlusClick = () => {
         let counter = radioClicked;
-        e.preventDefault();
-        if (counter < radioData.length-1){
-            setRadioClicked(counter +=1);
+        if (counter < radioData.length - 1){
+            setRadioClicked(counter += 1);
             setRadioName(radioData[counter].name);
         };
     };
 
-    const handleMinusClick = (e) => {
+    const handleMinusClick = () => {
         let counter = radioClicked;
-        e.preventDefault();
         if (counter > 0){
-            setRadioClicked(counter -=1);
+            setRadioClicked(counter -= 1);
             setRadioName(radioData[counter].name);
         };
+    };
+
+    function handleRadioClick(index, name) {
+        setRadioClicked(index)
+        setRadioName(name) 
     };
 
     return (
@@ -53,13 +54,13 @@ export default function RadioMenu() {
 
                 {radioClicked === index ? (
                     <div className="picture-section">
-                        <FontAwesomeIcon className="controls fa-2x" onClick={e => handleMinusClick(e)} icon={faMinusSquare}/>
+                        <FontAwesomeIcon className="controls fa-2x" onClick={() => handleMinusClick()} icon={faMinusSquare}/>
                         <img className="radio-img" src={el.image} alt="a"></img>
-                        <FontAwesomeIcon className="controls fa-2x" onClick={e => handlePlusClick(e)} icon={faPlusSquare}/>
+                        <FontAwesomeIcon className="controls fa-2x" onClick={() => handlePlusClick()} icon={faPlusSquare}/>
                     </div>) : null}
 
-                    <div onClick={() => setRadioName(el.name)}>
-                        <button className="station-btn" onClick={() => setRadioClicked(index)}>
+                    <div>
+                        <button className="station-btn" onClick={() => handleRadioClick(index, el.name)}>
                             <p className="p1">{el.name}</p> 
                             <p className="p2">{el.frequency} FM</p>
                         </button>
